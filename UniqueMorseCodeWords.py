@@ -20,4 +20,5 @@ class Solution:
 
 solution = Solution()
 testWords = ["gin", "zen", "gig", "msg"]
-print("Expecting '2'\n" + "Returned: " + str(solution.uniqueMorseRepresentations(testWords)))
+print("Expecting 2\n" +
+      "Returned: " + str(solution.uniqueMorseRepresentations(testWords)))
