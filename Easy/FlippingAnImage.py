@@ -22,7 +22,7 @@ solution = Solution()
 testImage = [
                 [1, 1, 0], [1, 0, 1], [0, 0, 0]
             ]
-print("Expecting [1,0,0],[0,1,0],[1,1,1]\n" +
+print("Expecting\n[1, 0, 0]\n[0, 1, 0]\n[1, 1, 1]\n" +
       "Returned: ")
 for result in solution.flipAndInvertImage(testImage):
     print(result)
