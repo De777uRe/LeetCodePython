@@ -1,7 +1,14 @@
 class Solution:
     def longestPalindrome(self, s: str) -> str:
-        pass
+        longest_palindrome = -1
+        start = 0
+        s_len = len(s)
+
+        for i in range (start, s_len):
+            pass
 
 
-solution = Solution()
 
+if __name__ == "__main__":
+    solution = Solution()
+    print(solution.longestPalindrome("teststring"))
