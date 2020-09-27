@@ -4,11 +4,14 @@ class Solution:
         substrings = []
         substring = ''
         i = 0
+        max_len = 0
         while i < len(s):
             if s[i] not in found_chars:
                 found_chars.append(s[i])
                 substring += s[i]
                 i += 1
+                if i > max_len:
+                    max_len = i
             else:
                 substrings.append(substring)
                 substring = ''
@@ -16,7 +19,7 @@ class Solution:
                 s = s[1:]
                 i = 0
         substrings.append(substring)
-        return len(max(substrings, key=len))
+        return max_len
 
 
 solution = Solution()
