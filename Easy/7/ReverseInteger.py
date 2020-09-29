@@ -1,11 +1,12 @@
 class Solution:
     def reverse(self, x: int) -> int:
-        if x == 0:
-            return "0"
+        if 10 > x >= 0:
+            return str(x)
 
-        ret_str = "" if x >= 0 else "-"
+        ret_str = ""
 
         if x < 0:
+            ret_str = "-"
             x *= -1
 
         while x > 0:
