@@ -26,3 +26,20 @@ if __name__ == "__main__":
     print(solution.romanToInt("IX"))
     print(solution.romanToInt("LVIII"))
     print(solution.romanToInt("MCMXCIV"))
+
+solution = Solution()
+
+def test_RN_3():
+    assert solution.romanToInt("III") == 3
+
+def test_RN_4():
+    assert solution.romanToInt("IV") == 4
+
+def test_RN_9():
+    assert solution.romanToInt("IX") == 9
+
+def test_RN_58():
+    assert solution.romanToInt("LVIII") == 58
+
+def test_RN_1994():
+    assert solution.romanToInt("MCMXCIV") == 1994
