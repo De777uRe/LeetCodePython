@@ -18,4 +18,4 @@ solution = Solution()
 testArr = [3, 1, 2, 4]
 print("Expecting [2, 4, 3, 1]\n" +
       "Returned: ")
-print solution.sortArrayByParity(testArr)
+print(solution.sortArrayByParity(testArr))

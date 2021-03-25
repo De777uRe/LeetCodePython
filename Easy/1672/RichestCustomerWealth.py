@@ -14,7 +14,7 @@ class Solution:
 
 def test_1():
     solution = Solution()
-    assert solution.maximumWealth([[1, 2, 3], [3, 2, 1]] == 6)
+    assert solution.maximumWealth([[1, 2, 3], [3, 2, 1]]) == 6
 
 
 if __name__ == "__main__":
