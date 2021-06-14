@@ -2,16 +2,37 @@ from typing import List
 
 '''
 Approaches:
-    1. Sort arrays first, then iterate keeping track of longest sequence
+    1. Naive: Sort arrays first, then iterate keeping track of longest sequence
         Complexity would be O(n*log(n)) + O(n) = O(n)
     2. Start from max, find numbers max-1
             If no max-1 found, remove max, find next max, continue
             If found max-1, find max-2, etc.
         This approach is not acceptable at O(n^2)
+    3. Best: Iterate through initial list, adding all seen to list
 '''
 
 
 class Solution:
+    def longestConsecutiveBest(self, nums: List[int]) -> int:
+        seen = set()
+        longest_sequence = 1
+        for num in nums:
+            sequence = 1
+            if num not in seen:
+                seen.add(num)
+                i = num + 1
+                while i in nums:
+                    seen.add(i)
+                    sequence += 1
+                    i += 1
+                i = num - 1
+                while i in nums:
+                    seen.add(i)
+                    sequence += 1
+                    i -= 1
+            longest_sequence = max(sequence, longest_sequence)
+        return longest_sequence
+
     def longestConsecutive(self, nums: List[int]) -> int:
         if len(nums) == 0:
             return 0
@@ -58,6 +79,6 @@ class Solution:
 if __name__ == "__main__":
     solution = Solution()
     testcase1 = [100, 4, 200, 1, 3, 2]
-    print(solution.longestConsecutive(testcase1))
+    print(solution.longestConsecutiveBest(testcase1))
     testcase2 = [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]
-    print(solution.longestConsecutive(testcase2))
+    print(solution.longestConsecutiveBest(testcase2))
