@@ -22,6 +22,23 @@ class Solution:
 
         return ret_str
 
+    def new_reverse(self, x: int) -> int:
+        num_string = str(x)
+        reversed_string = []
+        is_negative = False
+        for i in range(len(num_string)-1, -1, -1):
+            if num_string[i] == '-':
+                is_negative = True
+                continue
+            reversed_string.append(num_string[i])
+        final_num = int("".join(reversed_string))
+        if is_negative:
+            final_num *= -1
+        if final_num > 2 ** 31 - 1 or final_num < -2 ** 31:
+            return 0
+        else:
+            return final_num
+
 
 if __name__ == "__main__":
     solution = Solution()
@@ -29,5 +46,9 @@ if __name__ == "__main__":
     print(solution.reverse(-123))
     print(solution.reverse(120))
     print(solution.reverse(1534236469))
+    print(solution.new_reverse(123))
+    print(solution.new_reverse(-123))
+    print(solution.new_reverse(120))
+    print(solution.new_reverse(1534236469))
 
 
