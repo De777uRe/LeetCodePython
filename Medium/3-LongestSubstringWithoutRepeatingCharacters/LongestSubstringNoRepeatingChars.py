@@ -1,5 +1,7 @@
+from collections import defaultdict
+
 class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
+    def lengthOfLongestSubstring1(self, s: str) -> int:
         found_chars = []
         substrings = []
         substring = ''
@@ -20,6 +22,21 @@ class Solution:
                 i = 0
         substrings.append(substring)
         return max_len
+
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        if len(s) == 0:
+            return 0
+        if len(s) == 1:
+            return 1
+        max_length = left = 0
+        store = defaultdict(int)
+        for right, ch in enumerate(s):
+            store[ch] += 1
+            while store[ch] > 1:
+                store[s[left]] -= 1
+                left += 1
+            max_length = max(max_length, right - left + 1)
+        return max_length
 
 
 solution = Solution()

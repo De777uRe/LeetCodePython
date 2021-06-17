@@ -13,7 +13,23 @@ Approaches:
 
 
 class Solution:
-    def longestConsecutiveBest(self, nums: List[int]) -> int:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        longest_streak = 0
+        num_set = set(nums)
+
+        for num in num_set:
+            if num - 1 not in num_set:
+                current_num = num
+                current_streak = 1
+
+                while current_num + 1 in num_set:
+                    current_num += 1
+                    current_streak += 1
+
+                longest_streak = max(longest_streak, current_streak)
+        return longest_streak
+
+    def longestConsecutiveBest1(self, nums: List[int]) -> int:
         seen = set()
         longest_sequence = 1
         for num in nums:
@@ -33,7 +49,7 @@ class Solution:
             longest_sequence = max(sequence, longest_sequence)
         return longest_sequence
 
-    def longestConsecutive(self, nums: List[int]) -> int:
+    def longestConsecutive1(self, nums: List[int]) -> int:
         if len(nums) == 0:
             return 0
         sorted_unique_nums = sorted(list(set(nums)))
@@ -79,6 +95,6 @@ class Solution:
 if __name__ == "__main__":
     solution = Solution()
     testcase1 = [100, 4, 200, 1, 3, 2]
-    print(solution.longestConsecutiveBest(testcase1))
+    print(solution.longestConsecutive(testcase1))
     testcase2 = [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]
-    print(solution.longestConsecutiveBest(testcase2))
+    print(solution.longestConsecutive(testcase2))

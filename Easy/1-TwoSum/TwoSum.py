@@ -1,7 +1,7 @@
 from typing import List
 
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
+    def twoSum1(self, nums: List[int], target: int) -> List[int]:
         nums_to_target_pair = {}
         for i, num in enumerate(nums):
             target_num = target - num
@@ -17,6 +17,14 @@ class Solution:
                     continue
             elif complement in nums:
                 return [index_of_num, nums.index(complement)]
+
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        sum_map = {}
+        for i in range(len(nums)):
+            complement = target - nums[i]
+            if complement in sum_map.keys():
+                return [sum_map[complement], i]
+            sum_map[nums[i]] = i
 
 
 solution = Solution()
